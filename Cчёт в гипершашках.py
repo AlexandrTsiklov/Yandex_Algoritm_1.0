@@ -28,23 +28,20 @@ elif length == 2:
             count += 1
 else:
     while L < length:
-        flag = True
         while R < length:
             if lst_values[R] / lst_values[L] <= k:
                 if R - L - 1 >= 1:
                     multi = R - L - 1
                     count += multi * 6
-
                 if dct[lst_values[R]] > 1:
                     count += 3
                 if dct[lst_values[L]] > 1:
                     count += 3
-                if dct[lst_values[L]] > 2 and flag is True:
-                    count += 1
-                    flag = False
                 R += 1
             else:
                 break
+        if dct[lst_values[L]] > 2:
+            count += 1
         L += 1
         R = L + 1
 
