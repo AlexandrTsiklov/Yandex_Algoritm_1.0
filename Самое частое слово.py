@@ -16,5 +16,4 @@ min_word = 'z' * 10**2
 for i in lst_max_words:
     if i < min_word:
         min_word = i
-print(min_word)
-
+print(min_word)  #
