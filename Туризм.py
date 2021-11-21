@@ -19,4 +19,4 @@ for road in roads_list:
             if points_dict[point + 1][1] > points_dict[point][1]:
                 height += points_dict[point + 1][1] - points_dict[point][1]
 
-    print(height)
+    print(height)  #
