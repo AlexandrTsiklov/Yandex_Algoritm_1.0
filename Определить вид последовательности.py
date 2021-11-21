@@ -58,4 +58,4 @@ for i in [CONSTANT(lst), ASCENDING(lst), WEAKLY_ASCENDING(lst), DESCENDING(lst),
         print(i)
         break
 if final_flag is False:
-    print('RANDOM')
+    print('RANDOM')  #
