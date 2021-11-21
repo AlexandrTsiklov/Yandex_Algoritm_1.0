@@ -51,4 +51,4 @@ for i in operations_list:
     elif i[0] == 'WITHDRAW':
         withdraw(i[1], int(i[2]))
     else:
-        transfer(i[1], i[2], int(i[3]))
+        transfer(i[1], i[2], int(i[3])) #
