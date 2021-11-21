@@ -7,4 +7,4 @@ for i in lst:
     if abs(i - x) <= minimum:
         minimum = abs(i - x)
         ch = i
-print(ch)
+print(ch)  #
