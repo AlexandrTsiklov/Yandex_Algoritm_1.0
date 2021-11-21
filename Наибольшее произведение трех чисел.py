@@ -38,4 +38,4 @@ if mx == p1:
 elif mx == p2:
     print(max_near, max_aver, max_far)
 else:
-    print(otr_far, otr_aver, otr_near)
+    print(otr_far, otr_aver, otr_near)  #
