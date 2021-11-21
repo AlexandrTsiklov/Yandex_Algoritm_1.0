@@ -6,4 +6,4 @@ for i in lst_words:
         words_dict[i] = 0
     else:
         words_dict[i] += 1
-    print(words_dict[i])
+    print(words_dict[i])  #
