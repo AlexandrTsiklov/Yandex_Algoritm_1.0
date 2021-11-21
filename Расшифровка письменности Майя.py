@@ -31,5 +31,5 @@ for i in range(len(s) - length + 1):
     if temporary_dict == letters_of_word:
         count += 1
 
-print(count)
+print(count)  #
 
