@@ -28,7 +28,7 @@ while R < n:
             d[trees[R]] += 1
         R += 1
 
-print(rm + 1, rmx + 1)
+print(rm + 1, rmx + 1) #
 
 
 
