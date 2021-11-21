@@ -27,4 +27,4 @@ while (big_weigh >= average_weigh) and (average_weigh >= small_weigh):
     count_small += (average_weigh // small_weigh) * count_average
     big_weigh += (average_weigh % small_weigh) * count_average
 
-print(count_small)
+print(count_small)  #
