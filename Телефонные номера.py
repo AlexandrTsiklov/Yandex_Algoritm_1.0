@@ -36,5 +36,6 @@ for i in [new_number_store1, new_number_store2, new_number_store3]:
         print('YES')
     else:
         print('NO')
+#
 
 
