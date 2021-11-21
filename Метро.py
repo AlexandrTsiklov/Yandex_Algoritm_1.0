@@ -17,7 +17,7 @@ result = times_1.intersection(times_2)
 if result != set():
     print(min(result), max(result))
 else:
-    print(-1)
+    print(-1)  #
 
 
 
