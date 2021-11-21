@@ -18,7 +18,7 @@ for i in lst_figures[2:]:
 if max_bottom * max_top > min_far * min_near:
     print(max_bottom, max_top)
 else:
-    print(min_far, min_near)
+    print(min_far, min_near) #
 
 
 
