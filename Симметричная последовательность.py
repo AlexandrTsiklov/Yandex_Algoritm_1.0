@@ -11,4 +11,4 @@ else:
         start, end = len(lst_figures) // 2 + len(lst_figures) % 2, len(lst_figures) // 2
         i -= 1
     print(len(lst_figures[length:]))
-    print(*lst_figures[length:])
+    print(*lst_figures[length:])  #
