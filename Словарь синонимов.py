@@ -11,4 +11,4 @@ entered_word = input()
 if entered_word in sin_dict1:
     print(sin_dict1[entered_word])
 else:
-    print(sin_dict2[entered_word])
+    print(sin_dict2[entered_word])  #
