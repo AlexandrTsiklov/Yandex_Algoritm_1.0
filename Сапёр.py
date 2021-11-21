@@ -30,7 +30,7 @@ for i in range(len(field)):
         if flag:
             field[i].append('*')
         else:
-            field[i].append(0)
+            field[i].append(0)  #
 
 
 # Заполняем поле
