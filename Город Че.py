@@ -15,4 +15,4 @@ while True:
     if R == len(arr):
         break
 
-print(count)
+print(count)  #
