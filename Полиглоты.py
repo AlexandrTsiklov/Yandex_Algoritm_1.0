@@ -19,7 +19,7 @@ set_at_least_one_language = set(at_least_one_language)
 print(len(common_languages))
 print(*list(common_languages), sep='\n')
 print(len(set_at_least_one_language))
-print(*list(set_at_least_one_language), sep='\n')
+print(*list(set_at_least_one_language), sep='\n')  #
 
 
 
