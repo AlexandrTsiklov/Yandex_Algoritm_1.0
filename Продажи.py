@@ -13,4 +13,4 @@ for i in range(0, len(lst_words) - 2, 3):
 for client in sorted(customers_dict):
     print(client + ':')
     for goods in sorted(customers_dict[client]):
-        print(goods, customers_dict[client][goods])
+        print(goods, customers_dict[client][goods])  #
