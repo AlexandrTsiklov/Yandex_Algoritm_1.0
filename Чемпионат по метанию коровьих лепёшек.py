@@ -10,4 +10,4 @@ dist.sort(reverse=True)
 if our_ch == 0:
     print(our_ch)
 else:
-    print(dist.index(our_ch) + 1)
+    print(dist.index(our_ch) + 1) #
