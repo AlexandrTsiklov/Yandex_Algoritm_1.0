@@ -37,8 +37,7 @@ else:
                 for i in d:
                     d[i] = 0
                     d1[i] = False
-                L = R
-                R += 1
+                L = R - 1
                 d[s[L]] = 1
                 d1[s[L]] = True
                 if R == n:
