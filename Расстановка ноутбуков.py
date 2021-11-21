@@ -28,4 +28,4 @@ if flag is False:
     if min(max_list) > max(min_list):
         print(min(max_list), max(max_list) + min(min_list))
     else:
-        print(max(max_list), min(max_list) + min(min_list))
+        print(max(max_list), min(max_list) + min(min_list))  #
