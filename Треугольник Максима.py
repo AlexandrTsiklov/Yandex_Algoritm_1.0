@@ -19,7 +19,7 @@ for i in range(1, len(lst_music)):
         if new_rng_min > rng_min:
             rng_min = new_rng_min
 
-print('%.7f' % float(rng_min), '%.7f' % float(rng_max))
+print('%.7f' % float(rng_min), '%.7f' % float(rng_max))  #
 
 
 
