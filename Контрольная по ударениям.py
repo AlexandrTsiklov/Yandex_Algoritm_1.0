@@ -27,7 +27,7 @@ for word in s:
         if flag is False or count_cap == 0:
             count += 1
 
-print(count)
+print(count) #
 
 
 
