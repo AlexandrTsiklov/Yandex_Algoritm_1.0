@@ -9,3 +9,4 @@ for i in lst_tuple:
         final_list.append(str(i[0]) + '*' + str(i[1]))
 
 print(len(set(final_list)))
+#
