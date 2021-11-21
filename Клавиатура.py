@@ -17,7 +17,7 @@ for i in button_MaxPressCount_dict:
     if button_PressCount_dict[i] > button_MaxPressCount_dict[i]:
         print('YES')
     else:
-        print('NO')
+        print('NO')  #
 
 
 
