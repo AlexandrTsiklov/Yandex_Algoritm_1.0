@@ -5,16 +5,19 @@ sorted_lst_rost = sorted(lst_rost)
 
 def check_brigadu(rost_lst, count_brig, count_people, em):
     length = len(rost_lst)
+    count = 0
     flag = False
-    for ind_rost in range(length - count_people + 1):
-        count = 0
-        for rost in range(ind_rost, length - count_people + 1, count_people):
-            if rost_lst[rost + count_people - 1] - rost_lst[rost] <= em:
-                count += 1
-            if count == count_brig:
-                flag = True
-                break
-        if flag is True:
+    L, R = 0, count_people - 1
+    while R < length:
+        if rost_lst[R] - rost_lst[L] <= em:
+            count += 1
+            R += count_people
+            L += count_people
+        else:
+            R += 1
+            L += 1
+        if count >= count_brig:
+            flag = True
             break
     return flag
 
