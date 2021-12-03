@@ -1,6 +1,8 @@
 from heapq import merge
 n, l = map(int, input().split())
-lst_pos = [list(map(int, input().split())) for _ in range(n)]
+lst_pos = [sorted(list(map(int, input().split()))) for _ in range(n)]
+for i in lst_pos:
+    print(i)
 
 
 def bin_search(l, lst1, lst2):
