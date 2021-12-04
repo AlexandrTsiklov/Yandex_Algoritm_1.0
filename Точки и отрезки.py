@@ -1,6 +1,7 @@
 n, m = map(int, input().split())
 otr_list = [tuple(map(int, input().split())) for _ in range(n)]
 points_list = list(map(int, input().split()))
+
 look_at_that, pdict = [], {}
 for point in points_list:
     pdict[point] = 0

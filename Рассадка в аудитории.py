@@ -17,5 +17,3 @@ while R < len(students_list_first):
 print(max_var)
 for i in students_list_first:
     print(dii[i], end=' ')
-
-
