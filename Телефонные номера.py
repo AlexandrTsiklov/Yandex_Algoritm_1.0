@@ -1,41 +1,26 @@
-number_store1 = input()
-new_number_store1 = ''
-number_store2 = input()
-new_number_store2 = ''
-number_store3 = input()
-new_number_store3 = ''
 number = input()
-new_number = ''
+number_1 = input()
+number_2 = input()
+number_3 = input()
 
-for i in number:
-    if i.isdigit():
-        new_number += i
-if new_number[0] == '7':
-    new_number = new_number.replace('7', '8', 1)
+number_f = [i for i in number if i.isdigit()]
+number_1f = [i for i in number_1 if i.isdigit()]
+number_2f = [i for i in number_2 if i.isdigit()]
+number_3f = [i for i in number_3 if i.isdigit()]
+numbers = [number_f, number_1f, number_2f, number_3f]
 
-if number_store1 == '': number_store1 = '0'
-if number_store2 == '': number_store2 = '0'
-if number_store3 == '': number_store3 = '0'
+for i in range(len(numbers)):
+    if numbers[i][0] != '7' and numbers[i][0] != '8' and len(numbers[i]) < 11:
+        numbers[i] = ['8'] + numbers[i]
+    elif len(numbers[i]) == 11:
+        numbers[i][0] = '8'
+    if len(numbers[i]) == 8:
+        numbers[i] = numbers[i][:1] + ['4', '9', '5'] + numbers[i][1:]
 
-for i, j, k in zip(number_store1, number_store2, number_store3):
-    if i.isdigit():
-        new_number_store1 += i
-    if j.isdigit():
-        new_number_store2 += j
-    if k.isdigit():
-        new_number_store3 += k
-
-
-for i in [new_number_store1, new_number_store2, new_number_store3]:
-    local = i
-    if local[0] == '7':
-        local = local.replace('7', '8', 1)
-    if (new_number in local) and len(new_number) == 11:
-        print('YES')
-    elif (new_number[0] + '495' + new_number[1:] in local) and len(new_number) == 8:
+for number in numbers[1:]:
+    if number == numbers[0]:
         print('YES')
     else:
         print('NO')
-#
 
 
