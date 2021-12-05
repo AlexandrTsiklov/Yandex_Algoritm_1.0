@@ -1,37 +1,47 @@
 import re
 kw_count, true_register, true_digit = input().split()
-key_word_list = []
+key_word_list, max_value = [], 0
 if kw_count != '0':
     key_word_list = [input() for i in range(int(kw_count))]
 
-s = ''
+
+def check_un(s, register, digit):
+    alpha = '_QWERTYUIOPLKJHGFDSAZXCVBNMqwertyuioplkjhgfdsazxcvbnm1234567890'
+    if register == 'no':
+        s = s.lower()
+
+    local_lst, local_length, local_s, i = [], len(s), '', 0
+
+    while i < local_length:
+        if s[i] in alpha and ((local_s == '' and (digit == 'yes' or s[i].isdigit() is False)) or local_s != ''):
+            local_s += s[i]
+            if i + 1 == local_length and local_s != '':
+                local_lst.append(local_s)
+        elif local_s != '':
+            local_lst.append(local_s)
+            local_s = ''
+        i += 1
+    return local_lst
+
+
 with open('input.txt', 'r') as f:
+    total = []
     for i in f.readlines():
-        s += i.strip() + ' '
+        total += i.split()
 
-if true_digit == 'yes':
-    that_list_we_get = re.findall(r'[a-zA-Z0-9_]*[a-zA-Z_]+[a-zA-Z0-9_]*', s)
-else:
-    that_list_we_get = re.findall(r'[a-zA-Z_]*[a-zA-Z_]+[a-zA-Z0-9_]*', s)
+d = {}
+for s in total:
+    rez = check_un(s, true_register, true_digit)
+    if rez:
+        for i in rez:
+            if i not in key_word_list:
+                if i not in d:
+                    d[i] = 0
+                d[i] += 1
 
-dict_params = {}
-if true_register == 'yes':
-    for i in that_list_we_get:
-        if i not in dict_params:
-            dict_params[i] = 0
-        dict_params[i] += 1
-else:
-    for i in that_list_we_get:
-        if i.lower() not in dict_params:
-            dict_params[i.lower()] = 0
-        dict_params[i.lower()] += 1
-
-max_count = 0
-if true_register == 'no':
-    for i in range(len(key_word_list)):
-        key_word_list[i] = key_word_list[i].lower()
-for i in dict_params:
-    if (dict_params[i] > max_count) and (i not in key_word_list):
-        max_count = dict_params[i]
+count = 0
+for i in d:
+    if d[i] > count:
+        count = d[i]
         max_value = i
 print(max_value)
