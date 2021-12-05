@@ -1,26 +1,20 @@
-school_boys_count = int(input())
-common_languages, at_least_one_language = set(), []
+boys_count, sets_languages = int(input()), []
 
-
-for i in range(school_boys_count):
-    personal_set, number = set(), int(input())
-
-    for j in range(number):
+for i in range(boys_count):
+    personal_set = set()
+    for j in range(int(input())):
         personal_set.add(input())
+    sets_languages.append(personal_set)
+sets_languages_c = sets_languages.copy()
 
-    if common_languages == set():
-        common_languages = personal_set
-    else:
-        common_languages = common_languages.intersection(personal_set)
-    at_least_one_language += list(personal_set)
+if boys_count > 1:
+    for i in range(1, len(sets_languages)):
+        sets_languages[i] = sets_languages[i - 1].intersection(sets_languages[i])
+        sets_languages_c[i] = sets_languages_c[i - 1].union(sets_languages_c[i])
 
-
-set_at_least_one_language = set(at_least_one_language)
-print(len(common_languages))
-print(*list(common_languages), sep='\n')
-print(len(set_at_least_one_language))
-print(*list(set_at_least_one_language), sep='\n')  #
-
-
-
-
+print(len(sets_languages[-1]))
+for i in sets_languages[-1]:
+    print(i)
+print(len(sets_languages_c[-1]))
+for i in sorted(sets_languages_c[-1], reverse=True):
+    print(i)
