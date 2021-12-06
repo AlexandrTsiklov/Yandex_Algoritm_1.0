@@ -1,22 +1,21 @@
 n, k = map(int, input().split())
 numbers = list(map(int, input().split()))
 
-R, summa, count = 0, numbers[0], 0
-for L in range(n):
-    while R < n:
+L, R, summa, count = 0, 0, numbers[0], 0
+
+while L < n - 1:
+    if summa <= k:
         if summa == k:
             count += 1
+
+        if R == n - 1:
             summa -= numbers[L]
-            break
-        elif summa < k:
-            R += 1
-            if R < n:
-                summa += numbers[R]
+            L += 1
         else:
-            summa -= numbers[L]
-            break
+            R += 1
+            summa += numbers[R]
+    else:
+        summa -= numbers[L]
+        L += 1
 
-    if R == len(numbers) - 1:
-        break
-
-print(count)  #
+print(max(int(numbers[0] == k), count))
