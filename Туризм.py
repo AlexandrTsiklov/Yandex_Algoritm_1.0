@@ -1,22 +1,20 @@
-n = int(input())
-points_dict = {}
-for i in range(1, n + 1):
-    points_dict[i] = list(map(int, input().split()))
-roads_list = [list(map(int, input().split())) for i in range(int(input()))]
+points_list = [tuple(map(int, input().split())) for _ in range(int(input()))]
+roads_list = [tuple(map(int, input().split())) for _ in range(int(input()))]
+points_dict_ahead = {1: 0}
 
-for road in roads_list:
-    point_start = road[0]
-    point_finish = road[1]
-
-    height = 0
-    if point_start > point_finish:
-        for point in range(point_start, point_finish, -1):
-            if points_dict[point - 1][1] > points_dict[point][1]:
-                height += points_dict[point - 1][1] - points_dict[point][1]
-
+high = 0
+for i in range(1, len(points_list)):
+    if points_list[i][1] >= points_list[i - 1][1]:
+        high += points_list[i][1] - points_list[i - 1][1]
+        if points_list[i][0] != points_list[i - 1][0]:
+            points_dict_ahead[i + 1] = high
     else:
-        for point in range(point_start, point_finish):
-            if points_dict[point + 1][1] > points_dict[point][1]:
-                height += points_dict[point + 1][1] - points_dict[point][1]
+        points_dict_ahead[i + 1] = high
 
-    print(height)  #
+print(points_dict_ahead)
+
+
+
+
+
+
