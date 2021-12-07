@@ -1,4 +1,4 @@
-n, k = map(int, input().split())#
+n, k = map(int, input().split())  # TL 30 тест
 lst = list(map(int, input().split()))
 dct = {}
 lst_values = []
