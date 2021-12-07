@@ -27,7 +27,7 @@ def check_un(s, register, digit):
 with open('input.txt', 'r') as f:
     total = []
     for i in f.readlines():
-        total += i.split()
+        total += i.split()#
 
 d = {}
 for s in total:
