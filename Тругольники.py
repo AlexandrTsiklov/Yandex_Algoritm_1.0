@@ -15,7 +15,7 @@ for point in treugs:
         distanse = (int(free_point[1]) - int(point[1]))**2 + (int(free_point[0]) - int(point[0]))**2
         if distanse not in dict_distanses:
             dict_distanses[distanse] = 0
-        dict_distanses[distanse] += 1
+        dict_distanses[distanse] += 1 #
 
     for dist in dict_distanses:
         es_count = dict_distanses[dist]
