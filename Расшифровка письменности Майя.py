@@ -32,7 +32,7 @@ while R < s_l:
         summa += 1
 
     true_dict2[s[L]] -= 1
-    true_dict2[s[R]] += 1
+    true_dict2[s[R]] += 1  #
 
     if summa == calc_length:
         total += 1
