@@ -30,7 +30,7 @@ def lets_get_all_the_path(current_lst, whole_list, number, length, time):
         return lets_get_all_the_path(temp_points, whole_list, number + 1, length, time)
 
 
-from_start_to_end = [get_points_around(point, min_dist) for point in lst_coordinates]
+from_start_to_end = [get_points_around(point, min_dist) for point in lst_coordinates]#
 if n == 1:
     result = get_points_around(lst_coordinates[0], min_dist)
 else:
