@@ -1,45 +1,55 @@
 g, s_l = map(int, input().split())
-w, s, true_dict1, true_dict2, total = input(), input(), {}, {}, 0
+w, s, dict_example, dict_our, total, summa = input(), input(), {}, {}, 0, 0
 
-for letter in s:
-    true_dict1[letter] = 0
-    true_dict2[letter] = 0
-for letter in w:
-    if letter not in true_dict1:
-        true_dict1[letter] = 0
-    true_dict1[letter] += 1
+for char in w:
+    if char not in dict_example:
+        dict_example[char] = 0
+    dict_example[char] += 1
+    dict_our[char] = 0
+we_were_there, ness_summa = None, len(dict_example)
 
-calc_length = 0
-for key in true_dict1:
-    if true_dict1[key] > 0:
-        calc_length += 1
+for i in range(0, g):
+    char_r = s[i]
+    if char_r in dict_our:
+        dict_our[char_r] += 1
+        if dict_our[char_r] == dict_example[char_r]:
+            summa += 1
+        elif dict_our[char_r] > dict_example[char_r]:
+            summa -= 1
+if summa == ness_summa:
+    total += 1
 
-summa = 0
-for char in s[0:g - 1]:
-    true_dict2[char] += 1
-for letter in w:
-    if true_dict2[letter] == true_dict1[letter] and true_dict1[letter] > 0:
-        summa += 1
+for i in range(g, s_l):
+    char_r = s[i]
+    char_l = s[i - g]
 
-L, R = 0, g
-while R < s_l:
-    if (true_dict1[s[L]] > 0) and (true_dict2[s[L]] == true_dict1[s[L]]):
-        summa -= 1
-    elif (true_dict1[s[L]] > 0) and (true_dict2[s[L]] - 1 == true_dict1[s[L]]):
-        summa += 1
+    if char_l in dict_our:
+        dict_our[char_l] -= 1
+        if dict_our[char_l] == dict_example[char_l]:
+            summa += 1
+        elif dict_our[char_l] == dict_example[char_l] - 1:
+            summa -= 1
 
-    if (true_dict1[s[R]] > 0) and (true_dict2[s[R]] == true_dict1[s[R]]):
-        summa += 1
+    if char_r in dict_our:
+        dict_our[char_r] += 1
+        if dict_our[char_r] == dict_example[char_r]:
+            summa += 1
+            we_were_there = True
+        elif dict_our[char_r] > dict_example[char_r] and we_were_there:
+            summa -= 1
+            we_were_there = False
 
-    true_dict2[s[L]] -= 1
-    true_dict2[s[R]] += 1  #
-
-    if summa == calc_length:
+    if summa == ness_summa:
         total += 1
-    L += 1
-    R += 1
 
 print(total)
+
+
+
+
+
+
+
 
 
 
