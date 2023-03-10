@@ -1,36 +1,26 @@
-n, count_br, count_p_in_br = map(int, input().split())
-lst_rost = [int(input()) for _ in range(n)]
-sorted_lst_rost = sorted(lst_rost)
+amt_of_students, nessessary_aog, amt_people_in_group = map(int, input().split())  # aog - amount of groups, amt - amount
+students_heights = sorted([int(input()) for _ in range(amt_of_students)])
 
 
-def check_brigadu(rost_lst, count_brig, count_people, em):
-    length = len(rost_lst)
-    count = 0
-    flag = False
-    L, R = 0, count_people - 1
-    while R < length:
-        if rost_lst[R] - rost_lst[L] <= em:
-            count += 1
-            R += count_people
-            L += count_people
-        else:
-            R += 1
-            L += 1
-        if count >= count_brig:
-            flag = True
+def form_enough_groups(delta):
+    first_si, current_aog = 0, 0  # first_si - first student's index
+    while (first_si < amt_of_students) and (current_aog < nessessary_aog):
+        last_si = first_si + amt_people_in_group - 1
+        if last_si >= amt_of_students:
             break
-    return flag
-
-
-def bin_search(count_brig, count_pers_in_br, rost_lst):
-    L, R = 0, sorted_lst_rost[-1] + 1
-    while R != L:
-        m = (R + L) // 2
-        if not check_brigadu(rost_lst, count_brig, count_pers_in_br, m):
-            L = m + 1
+        elif students_heights[last_si] - students_heights[first_si] > delta:
+            first_si += 1
         else:
-            R = m
-    return R
+            first_si = last_si + 1
+            current_aog += 1
+    return current_aog >= nessessary_aog
 
 
-print(bin_search(count_br, count_p_in_br, sorted_lst_rost))
+l, r = 0, students_heights[-1] - students_heights[0]
+while l < r:
+    m = (l + r) // 2
+    if form_enough_groups(m):
+        r = m
+    else:
+        l = m + 1
+print(r)
