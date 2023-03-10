@@ -3,7 +3,7 @@ students_heights = sorted([int(input()) for _ in range(amt_of_students)])
 
 
 def form_enough_groups(delta):
-    first_si, current_aog = 0, 0  # first_si - first student's index 
+    first_si, current_aog = 0, 0  # first_si - first student's index
     while (first_si < amt_of_students) and (current_aog < nessessary_aog):
         last_si = first_si + amt_people_in_group - 1
         if last_si >= amt_of_students:
