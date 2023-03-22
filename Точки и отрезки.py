@@ -1,27 +1,24 @@
 n, m = map(int, input().split())
-otr_list = [tuple(map(int, input().split())) for _ in range(n)]
-points = tuple(map(int, input().split()))
-
-look_at_that, pdict = [], {}
+segments, eventsline = [], []
+for _ in range(n):
+    segment = list(map(int, input().split()))
+    segments.append((min(segment), max(segment)))
+points = list(map(int, input().split()))
+for segment in segments:
+    eventsline.append((segment[0], 0))  # segment start
+    eventsline.append((segment[1], 2))  # segment finish
 for point in points:
-    pdict[point] = 0
+    eventsline.append((point, 1))  # point position
+eventsline.sort()
 
-for otr in otr_list:
-    look_at_that.append((min(otr), 0))
-    look_at_that.append((max(otr), 2))
-for point in points:
-    look_at_that.append((point, 1))
-
-look_at_that.sort()
-i_include_this_count = 0
-
-for i in range(len(look_at_that)):
-    if look_at_that[i][1] == 0:
-        i_include_this_count += 1
-    elif look_at_that[i][1] == 2:
-        i_include_this_count -= 1
-    else:
-        pdict[look_at_that[i][0]] = i_include_this_count
+segmentscnt, point_segmentscnt = 0, {}
+for event in eventsline:
+    if event[1] == 1:
+        point_segmentscnt[event[0]] = segmentscnt
+    if event[1] == 0:
+        segmentscnt += 1
+    if event[1] == 2:
+        segmentscnt -= 1
 
 for point in points:
-    print(pdict[point], end=' ')
+    print(point_segmentscnt[point], end=' ')
