@@ -16,17 +16,17 @@ for i in range(n):
         eventsline.append((timeclose, 1, i))
 eventsline.sort()
 
-openedcheckouts, allwork_timestart, allwork_timeend, allwork_timetotal = set(), 0, 0, 0
+openedcnt, allwork_timestart, allwork_timeend, allwork_timetotal = overnightcnt, 0, 0, 0
 for event in eventsline:
     if event[1] == -1:
-        openedcheckouts.add(event[2])
-        if len(openedcheckouts) + overnightcnt == n:
+        openedcnt += 1
+        if openedcnt == n:
             allwork_timestart = event[0]
     if event[1] == 1:
-        if len(openedcheckouts) + overnightcnt == n:
+        if openedcnt == n:
             allwork_timetotal += event[0] - allwork_timestart
             allwork_timeend = event[0]
-        openedcheckouts.remove(event[2])
+        openedcnt -= 1
 
 if overnightcnt == n:
     print(1440)
