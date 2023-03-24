@@ -19,7 +19,7 @@ while m > 0:
 
     if workers[bestworkerid][1] == workers[bestworkerid][5]:  # если пора сделать перерыв
         workers[bestworkerid][4] += workers[bestworkerid][2]  # увеличиваем суммарное время на время перерыва
-        workers[bestworkerid][5] = 0  # и обнуляем надутые на отдом дыхании шарики
+        workers[bestworkerid][5] = 0  # и обнуляем надутые на одном дыхании шарики
     m -= 1  # уменьшаем количество шириков, которые осталось надуть
 
 maxtime = -1
