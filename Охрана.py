@@ -1,4 +1,4 @@
-for _ in range(int(input())): # статус ОК на интерпретаторе Python 3.11.2, Python 3.9 (PyPy 7.3.11) выдавал ML
+for _ in range(int(input())): # статус ОК на интерпретаторе Python 3.11.2
     dataline = input().split()
     n, events = int(dataline[0]), []
     for i in range(1, 2 * n, 2):
